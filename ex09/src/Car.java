@@ -14,8 +14,6 @@ public class Car {
         System.out.println("speed ="+ speed);
     }
 
-
-
     @Override
     public String toString() {
         return "Car{" +
