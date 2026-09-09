@@ -21,10 +21,15 @@ public class Ex02 {
 
 
         Scanner sc = new Scanner(System.in);
+        int total = 0;
         for (int i = 0; i < 5; i++) {
             System.out.println(i+1+"성적 입력");
             int score = Integer.parseInt(sc.nextLine());
+            srr[i].score = score;
+            total = total + score;
         }
+
+        System.out.println(Arrays.toString(srr));
     }
 
 }
