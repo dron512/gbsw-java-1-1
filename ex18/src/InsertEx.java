@@ -12,18 +12,15 @@ public class InsertEx {
             Connection conn
                 = DriverManager.getConnection(URL,"root","1234");
             System.out.println("DB 연결 성공");
-
             // sql 구문
-            PreparedStatement pstmt
-                = conn.prepareStatement("""
-                    insert into aa
-                        (name,score)
-                    values
-                        ('찬열',100);
-                    """);
+            PreparedStatement pstmt = conn.prepareStatement("""
+                                            insert into aa
+                                                (name,score)
+                                            values
+                                                ('찬열',100);
+                                            """);
             // sql 실행
             pstmt.executeUpdate();  // 실행...
-
             System.out.println("sql 실행 성공");
         }catch (Exception e){
             System.out.println("DB 연결 실패");
