@@ -10,22 +10,34 @@ public class Ex02 {
         Scanner scanner = new Scanner(System.in);
         MySqlDBManager dbManager = new MySqlDBManager();
         while (true) {
-            System.out.println("1. select 2. insert");
-            int input = scanner.nextInt();
+            System.out.println("1. select 2. insert 3.update 4.delete 5.종료");
+            int input = Integer.parseInt(scanner.nextLine());
             if (input == 1) {
                 dbManager.select();
             } else if (input == 2) {
-                dbManager.insert();
+
+                System.out.println("이름 입력: ");
+                String name = scanner.nextLine();
+                System.out.println("점수 입력:");
+                int score = Integer.parseInt(scanner.nextLine());
+                Student s = new Student(name, score);
+
+                dbManager.insert(s);
+
             } else if(input==3){
+                System.out.println("수정하고 싶은 번호 no를 입력: ");
+                int no = Integer.parseInt(scanner.nextLine());
+                System.out.println("no = "+no);
                 // 수정
-//                dbManager.update();
+//                dbManager.update(no,);
             }else  if(input==4){
                 // 삭제
-            }
-            else {
+            }else {
                 System.out.println("종료됩니다.");
                 break;
             }
         }
     }
 }
+
+

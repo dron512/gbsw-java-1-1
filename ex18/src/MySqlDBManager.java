@@ -30,7 +30,7 @@ public class MySqlDBManager {
         }
     }
 
-    public void insert(){
+    public void insert(Student s){
         try{
             // 데이터베이스 연결하기
             Connection conn
@@ -41,8 +41,10 @@ public class MySqlDBManager {
                                             insert into aa
                                                 (name,score)
                                             values
-                                                ('찬열',100);
+                                                (?,?);
                                             """);
+            pstmt.setString(1, s.getName());
+            pstmt.setInt(2, s.getScore());
             // sql 실행
             pstmt.executeUpdate();  // 실행...
             System.out.println("sql 실행 성공");
