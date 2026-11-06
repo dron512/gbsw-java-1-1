@@ -2,6 +2,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 public class MySqlDBManager {
     private static final String URL
@@ -19,9 +20,15 @@ public class MySqlDBManager {
 
             // sql 구문 실행
             ResultSet rs = pstmt.executeQuery();
+            ArrayList<Student> list = new ArrayList<>();
             while(rs.next()){
-                System.out.print(rs.getString("name"));
-                System.out.println(rs.getInt("score"));
+//                System.out.print(rs.getString("name"));
+//                System.out.println(rs.getInt("score"));
+
+                String name = rs.getString("name");
+                int score = rs.getInt("score");
+
+                list.add(new Student(name, score));
             }
             System.out.println("sql 실행성공");
         }catch (Exception e) {
